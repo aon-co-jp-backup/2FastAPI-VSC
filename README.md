@@ -152,3 +152,23 @@ npx vsce package  # .vsix
 - **Server-streaming is supported** (`open-runo-connect-*` in RPoem, main `1570371` / `34cb595`): `application/connect+json` envelopes, also via gRPC / gRPC-web; mid-stream errors end with a terminal frame; item/time limits, resource release on disconnect, and a real-TCP `WatchEvents` test pass. **Not yet deployed to the VPS.**
 - **When to use**: watching changes, progress updates, incremental results. One-shot calls stay plain Connect unary. Client-streaming / bidirectional only when needed.
 - German and Russian not yet added.
+
+## 2FastAPI-VSC - 多言語の説明 / Multilingual description (13 languages)
+
+公開ページ / Pages: https://easy-web.tokyo/2FastAPI-VSC ・ https://easy-web.tokyo/2FastAPI-VSC/demo (ダウンロード専用 / download-only)
+
+- **日本語**: 2FastAPI の VS Code 拡張。フォルダを調べてFlask/Djangoプロジェクトを見つけ、保存先を選んでFastAPIへ変換します。
+- **English**: The VS Code extension for 2FastAPI: it scans a folder, finds Flask/Django projects, asks where to save, and converts them to FastAPI.
+- **中文(简体)**: 2FastAPI 的 VS Code 扩展:扫描文件夹,找出 Flask/Django 项目,选择保存位置后转换为 FastAPI。
+- **中文(台灣・繁體)**: 2FastAPI 的 VS Code 擴充功能:掃描資料夾,找出 Flask/Django 專案,選擇儲存位置後轉換為 FastAPI。
+- **한국어**: 2FastAPI의 VS Code 확장입니다. 폴더를 검사해 Flask/Django 프로젝트를 찾고, 저장 위치를 고른 뒤 FastAPI로 변환합니다.
+- **Italiano**: L'estensione VS Code di 2FastAPI: analizza una cartella, trova i progetti Flask/Django, chiede dove salvare e li converte in FastAPI.
+- **Français**: L'extension VS Code de 2FastAPI : elle analyse un dossier, repère les projets Flask/Django, demande où enregistrer et les convertit en FastAPI.
+- **Deutsch**: Die VS-Code-Erweiterung für 2FastAPI: Sie durchsucht einen Ordner, findet Flask-/Django-Projekte, fragt nach dem Speicherort und wandelt sie in FastAPI um.
+- **Русский**: Расширение VS Code для 2FastAPI: сканирует папку, находит проекты Flask/Django, спрашивает, куда сохранить, и преобразует их в FastAPI.
+- **Українська**: Розширення VS Code для 2FastAPI: сканує теку, знаходить проєкти Flask/Django, питає, куди зберегти, і перетворює їх на FastAPI.
+- **فارسی (ایران)**: افزونهٔ VS Code برای 2FastAPI: پوشه را بررسی می‌کند، پروژه‌های Flask/Django را پیدا می‌کند، محل ذخیره را می‌پرسد و آن‌ها را به FastAPI تبدیل می‌کند.
+- **العربية**: إضافة VS Code الخاصة بـ 2FastAPI: تفحص مجلدًا وتعثر على مشاريع Flask/Django وتسأل عن مكان الحفظ ثم تحوّلها إلى FastAPI.
+- **עברית (ישראל)**: תוסף VS Code של 2FastAPI: סורק תיקייה, מוצא פרויקטים של Flask/Django, שואל היכן לשמור וממיר אותם ל-FastAPI.
+
+Download: https://github.com/aon-co-jp/2FastAPI-VSC/releases/latest
