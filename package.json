@@ -1,0 +1,61 @@
+{
+  "name": "tofastapi-vsc",
+  "displayName": "2FastAPI (Flask / Django → FastAPI)",
+  "description": "Scan a folder, detect Flask / Django projects and convert them to FastAPI (MFastAPI compatible). フォルダを自動スキャンし、Flask / Django を FastAPI へ変換。",
+  "version": "0.1.0",
+  "publisher": "aon-co-jp",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/aon-co-jp/2FastAPI-VSC" },
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Programming Languages", "Other"],
+  "keywords": ["flask", "django", "fastapi", "python", "convert", "migration"],
+  "main": "./out/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      { "command": "tofastapi.scanAndConvert", "title": "2FastAPI: Scan folder and convert / フォルダをスキャンして変換" },
+      { "command": "tofastapi.scanOnly", "title": "2FastAPI: Scan folder (list only) / フォルダをスキャン(一覧のみ)" },
+      { "command": "tofastapi.convertFile", "title": "2FastAPI: Convert this Flask file / この Flask ファイルを変換" }
+    ],
+    "menus": {
+      "explorer/context": [
+        { "command": "tofastapi.scanAndConvert", "when": "explorerResourceIsFolder", "group": "2fastapi" }
+      ],
+      "editor/context": [
+        { "command": "tofastapi.convertFile", "when": "resourceLangId == python", "group": "2fastapi" }
+      ]
+    },
+    "configuration": {
+      "title": "2FastAPI",
+      "properties": {
+        "tofastapi.executable": {
+          "type": "string",
+          "default": "2fastapi",
+          "description": "Command that runs 2FastAPI (pip install tofastapi). Use e.g. `python` together with `tofastapi.args` = [\"-m\", \"tofastapi\"]. / 2FastAPI を実行するコマンド。"
+        },
+        "tofastapi.args": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "description": "Arguments placed before the sub-command. / サブコマンドの前に付ける引数。"
+        },
+        "tofastapi.autoCreateFolders": {
+          "type": "boolean",
+          "default": false,
+          "description": "Create missing destination folders without asking. / 変換先フォルダが無ければ質問せずに自動作成する。"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "test": "tsc -p . && node --test test/core.test.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.0",
+    "@vscode/vsce": "^3.0.0"
+  }
+}
