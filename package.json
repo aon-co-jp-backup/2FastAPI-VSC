@@ -2,7 +2,7 @@
   "name": "tofastapi-vsc",
   "displayName": "2FastAPI (Flask / Django → FastAPI)",
   "description": "Scan a folder, detect Flask / Django projects and convert them to FastAPI (MFastAPI compatible). フォルダを自動スキャンし、Flask / Django を FastAPI へ変換。",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "aon-co-jp",
   "license": "MIT",
   "repository": { "type": "git", "url": "https://github.com/aon-co-jp/2FastAPI-VSC" },
