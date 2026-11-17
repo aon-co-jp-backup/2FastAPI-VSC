@@ -65,8 +65,9 @@ export async function scanFolder(cli: Cli, folder: string): Promise<Project[]> {
   return JSON.parse(line) as Project[];
 }
 
-export async function convertProject(cli: Cli, p: Project, dest: string): Promise<ConvertResult> {
-  const r = await runCli(cli, ["convert", "--kind", p.kind, "--path", p.path, "-o", dest, "--json"]);
+export async function convertProject(cli: Cli, p: Project, dest: string, fastapiVersion?: string): Promise<ConvertResult> {
+  const ver = fastapiVersion && fastapiVersion.trim() && fastapiVersion.trim().toLowerCase() !== "latest" ? ["--fastapi-version", fastapiVersion.trim()] : [];
+  const r = await runCli(cli, ["convert", "--kind", p.kind, "--path", p.path, "-o", dest, "--json", ...ver]);
   if (r.code !== 0) {
     throw new Error(`${p.name}: ` + (r.stderr || r.stdout).trim());
   }
@@ -88,6 +89,8 @@ function isNonEmptyDir(d: string): boolean {
 
 export interface FlowOptions {
   autoCreateFolders: boolean;
+  /** target FastAPI version; empty / "latest" = newest (the source Flask/Django version is detected automatically) */
+  fastapiVersion?: string;
 }
 
 /** The whole "scan → choose → where? → create? → convert" flow. */
@@ -134,7 +137,7 @@ export async function scanAndConvert(
       continue;
     }
     fs.mkdirSync(dest, { recursive: true });
-    const result = await convertProject(cli, p, dest);
+    const result = await convertProject(cli, p, dest, opts.fastapiVersion);
     out.push({ project: p, result });
   }
   if (out.length) ui.done(out, destRoot);

@@ -118,7 +118,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand("tofastapi.scanAndConvert", (uri?: vscode.Uri) =>
       guard(() =>
         vscode.window.withProgress({ location: vscode.ProgressLocation.Notification, title: t("2FastAPI: scanning / converting", "2FastAPI: スキャン・変換中") }, () =>
-          scanAndConvert(makeUi(output), cliFromConfig(), { autoCreateFolders: vscode.workspace.getConfiguration("tofastapi").get<boolean>("autoCreateFolders", false) }, uri?.fsPath)
+          scanAndConvert(makeUi(output), cliFromConfig(), { autoCreateFolders: vscode.workspace.getConfiguration("tofastapi").get<boolean>("autoCreateFolders", false), fastapiVersion: vscode.workspace.getConfiguration("tofastapi").get<string>("fastapiVersion", "latest") }, uri?.fsPath)
         )
       )
     ),

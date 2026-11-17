@@ -39,6 +39,11 @@
           "default": [],
           "description": "Arguments placed before the sub-command. / サブコマンドの前に付ける引数。"
         },
+        "tofastapi.fastapiVersion": {
+          "type": "string",
+          "default": "latest",
+          "description": "FastAPI version to generate code for (e.g. 0.110.0). 'latest' = newest. The source Flask/Django version is detected automatically. / 変換後のFastAPIのバージョン。latestなら最新。変換前のFlask/Djangoのバージョンは自動判定。"
+        },
         "tofastapi.autoCreateFolders": {
           "type": "boolean",
           "default": false,
